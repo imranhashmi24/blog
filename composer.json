@@ -1,0 +1,23 @@
+{
+    "name": "my/blog",
+    "description": "my blog project",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "My\\Blog\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "imran"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "pecee/simple-router": "dev-master"
+    }
+}
