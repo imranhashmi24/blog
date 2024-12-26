@@ -19,9 +19,8 @@ define('ASSET_URL', URL . '/assets');
 
 
 /* Load external routes file */
-require_once 'routes/routes.php';
-require_once 'routes/admin.php';
 
+require_once 'views/pages/master.php';
 /*
  * The default namespace for route-callbacks, so we don't have to specify it each time.
  * Can be overwritten by using the namespace config option on your routes.
@@ -30,4 +29,4 @@ require_once 'routes/admin.php';
 
 
 // Start the routing
-SimpleRouter::start();
+//SimpleRouter::start();
