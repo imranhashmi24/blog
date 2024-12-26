@@ -1,5 +1,5 @@
 <?php
 
-$content = 'portfolio';
+$content = 'services';
 
 include 'index.php';
