@@ -277,6 +277,8 @@
                             } else {
                                 include './pages/dashboard_content.php';
                             }
+                        }else{
+                            include './pages/dashboard_content.php';
                         }
                     ?>
                 </div>

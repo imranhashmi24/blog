@@ -7,3 +7,7 @@ function view ($path,$data=[]){
     return ob_get_clean();
 }
 
+function asset($path){
+    return "/blog/" .$path;
+}
+
