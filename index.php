@@ -19,30 +19,40 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav">
+        <?php  require_once "./views/layout/header.php" ?>
+        <!-- Masthead-->
+        <header class="masthead">
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="..." /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ms-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
+                <div class="masthead-subheading">Welcome To Our Studio!</div>
+                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
             </div>
-        </nav>
+        </header>
+<?php 
+        if(isset($content)){
+    if ($content == 'home'){
+        include "./views/pages/master.php";
+    } else if ($content === 'services') {
+        include './views/pages/services.php';
+    }else if ($content === 'portfolio') {
+        include './views/pages/portfolio.php';
+    }else if ($content === 'about') {
+        include './views/pages/about.php';
+    }else if ($content === 'team') {
+        include './views/pages/team.php';
+    }else if ($content === 'contact') {
+        include './views/pages/contact.php';
+    }else {
+        include "./views/pages/master.php";
+    }
+}
+?>
+       
         <!-- Masthead-->
        
-        <!-- Services-->
-      
+
         <!-- Footer-->
-        <footer class="footer py-4 bg-dark">
+        <footer class="footer py-4 bg-light pt-5 mt-5">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
