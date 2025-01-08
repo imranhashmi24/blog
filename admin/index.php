@@ -51,6 +51,16 @@
                     <i class="fas fa-list"></i>
                     <span>Category List</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="brandlist.php">
+                    <i class="fas fa-list"></i>
+                    <span>Brand List</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="studentlist.php">
+                    <i class="fas fa-list"></i>
+                    <span>Students List</span></a>
+            </li>
         </ul>
         <!-- End of Sidebar -->
 
@@ -274,10 +284,25 @@
                                 include './pages/dashboard_content.php';
                             } else if ($content === 'addcategory') {
                                 include './pages/category_content/addcategory.php';
-                            } else {
-                                include './pages/dashboard_content.php';
-                            }
+                            } else if ($content === 'editcategory') {
+                                include './pages/category_content/editcategory.php';
+                            } else if ($content === 'deletecategory') {
+                                include './pages/category_content/deletecategory.php';
+                            } 
+                            if ($content === 'brand_list') {
+                                include './pages/brand_content/index.php';
+                            }else if ($content === 'addbrand') {
+                                include './pages/brand_content/addbrand.php';
+                            } 
+                            if ($content === 'student_list') {
+                                include './pages/student_content/index.php';
+                            }else if ($content === 'addstudent') {
+                                include './pages/student_content/addstudent.php';
+                            } 
+                        }else{
+                            include './pages/dashboard_content.php';
                         }
+                
                     ?>
                 </div>
                 <!-- /.container-fluid -->

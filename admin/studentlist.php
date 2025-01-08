@@ -1,6 +1,6 @@
 <?php
 
-$content = 'login';
+$content = 'student_list';
 include 'index.php';
 
 ?>
