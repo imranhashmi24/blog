@@ -1,6 +1,6 @@
 <?php
 
-$content = 'login';
+$content = 'addbrand';
 include 'index.php';
 
 ?>

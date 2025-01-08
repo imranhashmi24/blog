@@ -1,6 +1,6 @@
 <?php
 
-$content = 'login';
+$content = 'deletecategory';
 include 'index.php';
 
 ?>
