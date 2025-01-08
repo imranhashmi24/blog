@@ -34,6 +34,8 @@ include "connection.php";
                 $name = $_POST['category_name'];
                 $slug = $_POST['category_slug'];
 
+                // validation
+
 
                 $sql = "insert into category(name,slug) value('$name','$slug')";
 
