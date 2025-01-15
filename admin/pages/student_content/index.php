@@ -9,18 +9,29 @@
 
     <?php
     
-    $server ="localhost";
-    $username = "root";
-    $password = "";
-    $database = "blog_project";
-    
-    $conn = new mysqli($server,$username,$password,$database);
-    
+    include "connection.php";
+
     if($conn->connect_error){
         die("Failed" . $conn->connect_error);
     }
 
     $result = $conn->query("select * from students"); 
+
+    if (isset($_GET['delete_id'])) {
+        $id = $_GET['delete_id'];
+    
+        // Prepare the SQL query for deletion
+        $sql = "DELETE FROM `students` WHERE `id` = $id";
+    
+        // Execute the query
+        $delete = $conn->query($sql);
+    
+        if ($delete) {
+            echo "Delete successfully.";
+        } else {
+            echo "Something went wrong.";
+        }
+    }
     
     ?>
 
@@ -47,7 +58,10 @@
                      
                         <td>
                             <a href="editstudent.php" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="deletestudent.php" class="btn btn-danger btn-sm">Delete</a>
+                            <form action="" method="get" style="display:inline-block;">
+                             <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
+                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                         </form>
                         </td>
                     </tr>
 

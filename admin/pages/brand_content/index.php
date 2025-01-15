@@ -9,13 +9,7 @@
 
 <?php
 
-$server = "localhost";
-$username = "root";
-$password = "";
-$database = "blog_project";
-
-
-$conn = new mysqli($server,$username,$password,$database);
+include "connection.php";
 
 if($conn->connect_error){
     die("Failed" .  $conn->connect_error);
@@ -23,7 +17,21 @@ if($conn->connect_error){
 
 $result = $conn->query("select * from brand"); 
 
+if (isset($_GET['delete_id'])) {
+    $id = $_GET['delete_id'];
 
+    // Prepare the SQL query for deletion
+    $sql = "DELETE FROM `brand` WHERE `id` = $id";
+
+    // Execute the query
+    $delete = $conn->query($sql);
+
+    if ($delete) {
+        echo "Delete successfully.";
+    } else {
+        echo "Something went wrong.";
+    }
+}
 
 ?>
 
@@ -45,7 +53,10 @@ $result = $conn->query("select * from brand");
                         <td><?php echo $row['slug'] ?></td>                        
                         <td>
                             <a href="editbrand.php" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="brandcategory.php" class="btn btn-danger btn-sm">Delete</a>
+                            <form action="" method="get" style="display:inline-block;">
+                             <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
+                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                         </form>
                         </td>
                     </tr>
 
@@ -55,3 +66,5 @@ $result = $conn->query("select * from brand");
         </div>
     </div>
 </div>
+
+

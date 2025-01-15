@@ -2,8 +2,19 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['name']) && !isset($_SESSION['email']) && !isset($_SESSION['id'])) {
+// if (!isset($_SESSION['name']) && !isset($_SESSION['email']) && !isset($_SESSION['id'])) {
+//     header("Location: login.php");
+// }
+
+
+if(isset($_POST['logout'])){
+
+    $is_dark = 'dark';
+
+    session_destroy();
+
     header("Location: login.php");
+
 }
 
 ?>
@@ -70,6 +81,13 @@ if (!isset($_SESSION['name']) && !isset($_SESSION['email']) && !isset($_SESSION[
                 <a class="nav-link" href="studentlist.php">
                     <i class="fas fa-list"></i>
                     <span>Students List</span></a>
+            </li>
+
+            <li class="nav-item">
+                 <!-- Delete Button Form -->
+                 <form action="" method="post" style="display:inline-block;">
+                    <button type="submit" name="logout" class="btn btn-danger btn-sm ms-5" style="margin-left:50px;">Logout</button>
+                </form>
             </li>
         </ul>
         <!-- End of Sidebar -->
@@ -272,10 +290,8 @@ if (!isset($_SESSION['name']) && !isset($_SESSION['email']) && !isset($_SESSION[
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
+                            
+                               
                             </div>
                         </li>
 
@@ -303,6 +319,8 @@ if (!isset($_SESSION['name']) && !isset($_SESSION['email']) && !isset($_SESSION[
                                 include './pages/brand_content/index.php';
                             }else if ($content === 'addbrand') {
                                 include './pages/brand_content/addbrand.php';
+                            } else if ($content === 'editbrand') {
+                                include './pages/brand_content/editbrand.php';
                             } 
                             if ($content === 'student_list') {
                                 include './pages/student_content/index.php';

@@ -1,14 +1,14 @@
 
 <?php
-  require 'connection.php';
+    require 'connection.php';
+    // session_start();
+   
 
-session_start();
-
-if (!isset($_SESSION['name']) && !isset($_SESSION['email']) && !isset($_SESSION['id'])) {
-    header("Location: login.php");
-} else {
-    header("Location: index.php");
-}
+    // if (!isset($_SESSION['name']) && !isset($_SESSION['email']) && !isset($_SESSION['id'])) {
+    //     header("Location: login.php");
+    // } else {
+    //     header("Location: index.php");
+    // }
 
   if (isset($_POST['login'])) {
     $email = $_POST['email'];
@@ -30,7 +30,7 @@ if (!isset($_SESSION['name']) && !isset($_SESSION['email']) && !isset($_SESSION[
     }
 
     
-    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+    $sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
 
     $result = $conn->query($sql);
 
@@ -39,11 +39,13 @@ if (!isset($_SESSION['name']) && !isset($_SESSION['email']) && !isset($_SESSION[
 
         
         
+        
         $_SESSION['name'] = $row['name'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['id'] = $row['id'];
 
         header("Location: index.php");
+
     } else {
         $error = "Invalid email or password";
     }

@@ -56,8 +56,6 @@ if($conn->connect_error){
                      <td>
                          <!-- Edit Button -->
                          <a href="editcategory.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">Edit</a>
-
-                         <a href="categorylist.php?delete_id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">Delete</a>
  
                          <!-- Delete Button Form -->
                          <form action="" method="get" style="display:inline-block;">
